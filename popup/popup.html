@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>YouTube Queue Duration</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main id="app">
+
+    <section id="state-loading" class="state">
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="muted">Reading queue…</p>
+    </section>
+
+    <section id="state-not-youtube" class="state hidden">
+      <p class="title">Not a YouTube video</p>
+      <p class="muted">Open a YouTube video to use this.</p>
+    </section>
+
+    <section id="state-no-queue" class="state hidden">
+      <p class="title">No queue found</p>
+      <p class="muted">This video doesn't have an active Up Next / playlist queue.</p>
+      <p class="hint">If this is a playlist video, wait a moment for the page to finish loading and reopen the popup.</p>
+    </section>
+
+    <section id="state-ok" class="state hidden">
+      <p class="headline" id="headline-total">0m</p>
+      <p class="subline" id="subline-minutes">(0 minutes)</p>
+      <p class="count" id="video-count">0 videos in queue</p>
+      <p class="hint hidden" id="skipped-note"></p>
+
+      <details id="breakdown">
+        <summary>Show videos</summary>
+        <ol id="breakdown-list"></ol>
+      </details>
+    </section>
+
+    <section id="state-error" class="state hidden">
+      <p class="title">Couldn't read this page</p>
+      <p class="muted">This page doesn't allow the extension to inspect it.</p>
+      <details>
+        <summary>Details</summary>
+        <pre id="error-detail"></pre>
+      </details>
+    </section>
+
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

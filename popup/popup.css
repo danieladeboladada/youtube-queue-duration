@@ -1,0 +1,156 @@
+:root {
+  --bg: #ffffff;
+  --fg: #0f0f0f;
+  --muted: #606060;
+  --accent: #ff0000;
+  --border: #e5e5e5;
+  --hint-bg: #f9f9f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #181818;
+    --fg: #f1f1f1;
+    --muted: #aaaaaa;
+    --accent: #ff4d4d;
+    --border: #303030;
+    --hint-bg: #202020;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 320px;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+#app {
+  padding: 20px;
+}
+
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.state.hidden {
+  display: none;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 4px 0 0;
+}
+
+.muted {
+  color: var(--muted);
+  margin: 0;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 12px;
+  background: var(--hint-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-top: 8px;
+}
+
+.headline {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 4px 0 0;
+  line-height: 1.1;
+}
+
+.subline {
+  color: var(--muted);
+  margin: 0;
+  font-size: 13px;
+}
+
+.count {
+  margin: 6px 0 0;
+  font-size: 13px;
+}
+
+#breakdown {
+  width: 100%;
+  margin-top: 14px;
+  text-align: left;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+#breakdown summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 12px;
+  user-select: none;
+}
+
+#breakdown-list {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  max-height: 180px;
+  overflow-y: auto;
+  font-size: 12px;
+}
+
+#breakdown-list li {
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+#breakdown-list .item-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#breakdown-list .item-duration {
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+pre#error-detail {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 11px;
+  text-align: left;
+  background: var(--hint-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 4px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
